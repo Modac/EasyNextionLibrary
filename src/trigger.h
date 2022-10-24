@@ -33,6 +33,12 @@
 extern void easyNexReadCustomCommand();
 extern void easyNexReadCustomCommand() __attribute__((weak));
 
+extern void toSleep();
+extern void wakeUp();
+
+extern void toSleep() __attribute__((weak));
+extern void wakeUp() __attribute__((weak));
+
 // declare the functions for triggers
 extern void trigger0();
 extern void trigger1(); 
