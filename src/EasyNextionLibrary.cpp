@@ -331,7 +331,34 @@ void EasyNex::NextionListen(){
         readCommand();                        // We call the readCommand(), 
                                               // in which we read, seperate and execute the commands 
 			}
-		}
+	} else if (_start_char == 0x86 || _start_char == 0x87){
+		_tmr1 = millis();
+        while(_serial->available() < 3){     // Waiting for the next 3 0xFF bytes to arrive              
+          if((millis() - _tmr1) > 100UL){         // Waiting... But not forever...... 
+                                            // tmr_1 a timer to avoid the stack in the while loop if there is not any bytes on _serial
+            break;                            
+          }                                     
+        } 
+         _endBytes = 0;                      // This variable helps us count the end command bytes of Nextion. The 0xFF 0xFF 0xFF
+
+        if(_serial->available()>= 3){         // read the Serial if is available
+          for(int i = 0; i < 3; i++){       // Read the 3 bytes represent the 3 0xFF and store them in the numeric buffer 
+          _numericBuffer[0] = _serial->read();
+            if(_numericBuffer[0] == 0xFF || _numericBuffer[0] == 0xFFFFFFFF){  // If the read byte is the end command byte,
+              _endBytes++;                                                   // Add one to the _endBytes counter
+            }
+	       }
+        }
+        
+        if(_endBytes == 3){
+          _endBytes = 0;
+          if(_start_char == 0x86){
+			  toSleep();
+		  } else if(_start_char == 0x87){
+			  wakeUp();
+		  }
+        }
+	}
 	}
 }
 
