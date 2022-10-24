@@ -339,7 +339,7 @@ void EasyNex::NextionListen(){
             break;                            
           }                                     
         } 
-         _endBytes = 0;                      // This variable helps us count the end command bytes of Nextion. The 0xFF 0xFF 0xFF
+        int _endBytes = 0;                      // This variable helps us count the end command bytes of Nextion. The 0xFF 0xFF 0xFF
 
         if(_serial->available()>= 3){         // read the Serial if is available
           for(int i = 0; i < 3; i++){       // Read the 3 bytes represent the 3 0xFF and store them in the numeric buffer 
