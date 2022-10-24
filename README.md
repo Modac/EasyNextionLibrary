@@ -446,6 +446,10 @@ if(text.equals("ERROR") == false){       // ERROR is the return value if the cod
 String x = myObject.readStr("t0.txt"); // Store to x the value of text box t0
 ````
 
+### Function toSleep(); and wakeUp();
+Works like the trigger functions but are called when the display enters/exits sleep mode.
+Note: these are not called when sleep is entered/exited through the `sleep` command.
+
 ##  Library Public Variables
 
 **`Associated Library's Code Example:` *` ChangePagesAndSentFloatValues`***
