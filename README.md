@@ -103,6 +103,8 @@ void trigger0(){
   }
 }
 ````
+**Note**: Add `printh 23 02 50 XX` to the preinitialize event on every page! 
+
 Enjoy the Easy Nextion Library!! Please do not forget the LED on :)
 
 ## Full Example Code
