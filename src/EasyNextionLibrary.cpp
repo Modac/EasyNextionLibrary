@@ -306,7 +306,7 @@ void EasyNex::NextionListen(){
     _start_char = _serial->read();      // Create a local variable (start_char) read and store the first byte on it  
     _tmr1 = millis();
     
-    while(_start_char != '#'){            
+    while(_start_char != '#' && _start_char != 0x86 && _start_char != 0x87){            
       _start_char = _serial->read();        // whille the start_char is not the start command symbol 
                                            //  read the serial (when we read the serial the byte is deleted from the Serial buffer)
       if((millis() - _tmr1) > 100UL){     //   Waiting... But not forever...... 
