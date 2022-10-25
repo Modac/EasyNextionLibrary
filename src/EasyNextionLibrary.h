@@ -140,7 +140,7 @@ class EasyNex {
       //---------------------------------------
 		 // for General functions  
     //-----------------------------------------
-    char _start_char;
+    byte _start_char;
     unsigned long _tmr1;
     bool _cmdFound;
     uint8_t _cmd1;
