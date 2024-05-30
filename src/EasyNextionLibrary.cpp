@@ -353,9 +353,9 @@ void EasyNex::NextionListen(){
         if(_endBytes == 3){
           _endBytes = 0;
           if(_start_char == 0x86){
-			  toSleep();
+			  triggerToSleep();
 		  } else if(_start_char == 0x87){
-			  wakeUp();
+			  triggerWokeUp();
 		  }
         }
 	}

@@ -32,8 +32,8 @@
 
 extern void __attribute__((weak)) easyNexReadCustomCommand() {}
 
-extern void  __attribute__((weak)) toSleep() {}
-extern void __attribute__((weak)) wakeUp() {}
+extern void  __attribute__((weak)) triggerToSleep() {}
+extern void __attribute__((weak)) triggerWokeUp() {}
 
 // declaration of the trigger functions as weak
 extern void __attribute__((weak)) trigger0() {}
